@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'remote-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: '<div>hello world!</div>',
 })
-export class AppComponent {
-  title = 'remote';
-}
+export class AppComponent {}

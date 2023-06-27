@@ -5,9 +5,7 @@ export const appRoutes: Route[] = [
     {
         path: 'remote',
         loadChildren: () =>
-            loadRemoteModule('remote', './Module').then(
-                (m) => m.RemoteEntryModule
-             ),
+        loadRemoteModule('remote', './Module').then((m) => m.RemoteEntryModule),
     },
 
 ];

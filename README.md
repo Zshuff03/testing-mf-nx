@@ -4,5 +4,6 @@
 This was generated using the nx docs [here.](https://nx.dev/recipes/module-federation/dynamic-module-federation-with-angular)
 
 The current error that I'm running into happens when trying to load the remote's route in the shell app:
-
 `ERROR Error: Uncaught (in promise): Error: NG0203: inject() must be called from an injection context such as a   constructor, a factory function, a field initializer, or a function used with 'runInInjectionContext'. Find more at https://angular.io/errors/NG0203`
+
+The above was fixed, but now I'm not able to load anything from the remote into the shell's router outlet.

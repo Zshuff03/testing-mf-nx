@@ -1,0 +1,122 @@
+{
+  "name": "dynamic-remote-tester",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "dynamic-testers",
+  "sourceRoot": "apps/dynamic-remote-tester/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dynamic-remote-tester",
+        "index": "apps/dynamic-remote-tester/src/index.html",
+        "main": "apps/dynamic-remote-tester/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/dynamic-remote-tester/tsconfig.app.json",
+        "assets": [
+          "apps/dynamic-remote-tester/src/favicon.ico",
+          "apps/dynamic-remote-tester/src/assets"
+        ],
+        "styles": ["apps/dynamic-remote-tester/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/dynamic-remote-tester/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/dynamic-remote-tester/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "options": {
+        "port": 4202,
+        "publicHost": "https://fbs.forbes.com:4202"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "dynamic-remote-tester:build:production"
+        },
+        "development": {
+          "browserTarget": "dynamic-remote-tester:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "dynamic-remote-tester:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/dynamic-remote-tester/**/*.ts",
+          "apps/dynamic-remote-tester/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/dynamic-remote-tester/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dynamic-remote-tester:build",
+        "port": 4202,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dynamic-remote-tester:build:development"
+        },
+        "production": {
+          "buildTarget": "dynamic-remote-tester:build:production"
+        }
+      }
+    }
+  }
+}

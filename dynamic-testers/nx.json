@@ -2,10 +2,9 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "MjlkZmVjYjQtNTdkNi00OGIxLWIzMzUtNDdkZDZiOTYzMjgwfHJlYWQtd3JpdGU="
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -35,8 +34,8 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/src/test-setup.[jt]s"
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/.eslintrc.json"
     ],
     "sharedGlobals": []
   },
@@ -54,6 +53,5 @@
     "@nx/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "remote"
+  }
 }

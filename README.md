@@ -6,3 +6,6 @@ This was generated using the nx docs [here.](https://nx.dev/recipes/module-feder
 The current error that I'm running into happens when trying to load the remote's route in the shell app:
 
 `ERROR Error: Uncaught (in promise): Error: NG0203: inject() must be called from an injection context such as a   constructor, a factory function, a field initializer, or a function used with 'runInInjectionContext'. Find more at https://angular.io/errors/NG0203`
+
+
+UPDATE: Got a dynamic remote integrated into a shell app outside of this repo. still not sure what's wrong with the `remote` and `shell` nx-workspaces, but the `dynamic-remote-tester` runs perfectly with the updated angular to `16.1.3` and nx beta version `16.6.0-beta.2`. 

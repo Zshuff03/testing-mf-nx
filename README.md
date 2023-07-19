@@ -9,3 +9,7 @@ The current error that I'm running into happens when trying to load the remote's
 The above was fixed, but now I'm not able to load anything from the remote into the shell's router outlet.
 
 UPDATE: Got a dynamic remote integrated into a shell app outside of this repo. still not sure what's wrong with the `remote` and `shell` nx-workspaces, but the `dynamic-remote-tester` runs perfectly with the updated angular to `16.1.3` and nx beta version `16.6.0-beta.2`. 
+
+Fixed the above!
+
+Dynamic remote tester now works on nx version `16.5.3` w/ a mock service using the HTTPClient package provided by angular.
